@@ -10,32 +10,32 @@ module.exports = {
   getUUID,
 };
 
-function load({databaseFile, defaultValue}={}) {
+function load(databaseFile) {
   assert.usage(path.isAbsolute(databaseFile), "`databaseFile` should be an absolute path.", {databaseFile});
-  assert.usage(defaultValue && [Array, Object].includes(defaultValue.constructor), "`defaultValue` should be an object or array.", {defaultValue});
-  assert.usage(!defaultValue[__proto], "`defaultValue` is already used as proto object/array; provide a new object/array.");
 
   let protoObj;
   try {
     protoObj = fs.readJsonSync(databaseFile);
   } catch(err) {
     assert.usage(!fs.pathExistsSync(databaseFile), "`"+databaseFile+"` should be a JSON file.");
-    protoObj = defaultValue;
+    protoObj = {};
   }
+
+  assert.usage(protoObj && protoObj.constructor===Object, "The JSON value of `"+databaseFile+"` should be an object.");
 
   protoObj[__proto] = {databaseFile};
 
   return protoObj;
 }
 
-async function save(protoObj, {spaces=2}={}) {
-  assert.usage(protoObj[__proto], "`save(protoObj)` - `protoObj` should be a proto object/array.");
+async function save(protoObj) {
+  assert.usage(protoObj[__proto], "`save(protoObj)` - `protoObj` should be a proto object.");
   const {databaseFile} = protoObj[__proto];
   assert.internal(path.isAbsolute(databaseFile));
-  await fs.writeJson(databaseFile, protoObj, {spaces});
+  await fs.writeJson(databaseFile, protoObj);
 }
 
 function getUUID() {
-  const id = Math.floor(Math.random()*Math.pow(10,16));
+  const id = Math.floor(Math.random()*Math.pow(10,12));
   return id;
 }
