@@ -1,3 +1,80 @@
+<!---
+
+
+
+
+
+
+    WARNING, READ THIS.
+    This is a computed file. Do not edit.
+    Instead, edit `/readme.template.md` and run `npm run docs` (or `yarn docs`).
+
+
+
+
+
+
+
+
+
+
+
+
+    WARNING, READ THIS.
+    This is a computed file. Do not edit.
+    Instead, edit `/readme.template.md` and run `npm run docs` (or `yarn docs`).
+
+
+
+
+
+
+
+
+
+
+
+
+    WARNING, READ THIS.
+    This is a computed file. Do not edit.
+    Instead, edit `/readme.template.md` and run `npm run docs` (or `yarn docs`).
+
+
+
+
+
+
+
+
+
+
+
+
+    WARNING, READ THIS.
+    This is a computed file. Do not edit.
+    Instead, edit `/readme.template.md` and run `npm run docs` (or `yarn docs`).
+
+
+
+
+
+
+
+
+
+
+
+
+    WARNING, READ THIS.
+    This is a computed file. Do not edit.
+    Instead, edit `/readme.template.md` and run `npm run docs` (or `yarn docs`).
+
+
+
+
+
+
+-->
 # Proto DB
 
 <p align='center'>
@@ -6,6 +83,8 @@
 <a href="#why-proto-db">Why Proto DB</a>
 &nbsp; | &nbsp;
 <a href="#usage">Usage</a>
+&nbsp; | &nbsp;
+<a href="#api">API</a>
 &nbsp; | &nbsp;
 <a href="#how-does-it-work">How does it work</a>
 </p>
@@ -18,47 +97,69 @@ Proto is a small Node.js tool to save a JavaScript object to disk.
 
 At the early prototyping phase of several projects,
 we were too lazy to set up a proper database and
-instead we used JavaScript objects and saved them by reading & writing JSON to the filesystem.
+instead we used a JavaScript object and saved it by reading & writing it as a JSON file to the disk.
 
 We expected that our approach wouldn't survive long
 and that we soon would need to replace our lazy hack with a real database.
 But, and to our biggest surprise, we got quite far until we had to use a real database.
 
-This little tool is also about being a cheering message that using JavaScript objects, JSON, and the filesystem can be a great alternative to a database while prototyping.
+Proto DB is a cheering message that the technique of using JavaScript objects, JSON, and the filesystem can be a great alternative to a database while prototyping. You may not use Proto DB but you may want to consider this technique.
 
 ### Usage
 
 Idiomatic usage example:
 
 ~~~js
-// ~/proto-example/db/index.js
+// /example/db/index.js
 
-const proto = require('@brillout/proto-db'); // npm install @brillout/proto-db
+const proto = require('@brillout/proto'); // npm install @brillout/proto-db
 
-const db = proto.load(__dirname+'/data.json');
-db.todos = db.todos || [];
+const data = proto.load(__dirname+'/data.json', {todos: []});
 
-saveNewTodo();
+module.exports = {createTodo, getAllTodos};
 
-async function saveNewTodo() {
-  const newTodo = {
-    id: proto.getUUID(),
-    text: 'Buy Milk',
-  };
-  db.todos.push(newTodo);
+async function createTodo({text}) {
+  const id = proto.getUUID();
+  const newTodo = {id, text};
+  data.todos.push(newTodo);
 
-  await proto.save(db);
+  await proto.save(data);
+}
+
+function getAllTodos() {
+  return data.todos;
+}
+~~~
+~~~js
+// /example/index.js
+
+const db = require('./db');
+
+run();
+
+async function run() {
+  await db.createTodo({text: 'Buy Milk'});
+
+  const todos = db.getAllTodos();
+  console.log(todos);
 }
 ~~~
 
-The new todo item is saved in `data.json`:
+Which prints:
 
-~~~ shell
+~~~shell
+$ node example/
+[ { id: 430557952207, text: 'Buy Milk' } ]
+~~~
+
+The new todo item is saved as JSON in `data.json`:
+
+~~~shell
 $ cat ~/proto-example/db/data.json
 {"todos":[{"id":199451513185,"text":"Buy Milk"}]}
 ~~~
 
-**API**
+### API
 
 - `const db = proto.load(databaseFile)` where `databaseFile` is the disk path where `db` is saved, `db` is a plain JavaScript object, and `proto.load` is synchronous.
 - `await proto.save(db)` where `db` is the JavaScript object saved to disk. It will be saved to `databaseFile` you provided when you ran `const db = proto.load(databaseFile)`.
@@ -70,3 +171,81 @@ That's it.
 
 It's only ~40 LOCs,
 so you can simply read the source code at [/index.js](/index.js).
+
+<!---
+
+
+
+
+
+
+    WARNING, READ THIS.
+    This is a computed file. Do not edit.
+    Instead, edit `/readme.template.md` and run `npm run docs` (or `yarn docs`).
+
+
+
+
+
+
+
+
+
+
+
+
+    WARNING, READ THIS.
+    This is a computed file. Do not edit.
+    Instead, edit `/readme.template.md` and run `npm run docs` (or `yarn docs`).
+
+
+
+
+
+
+
+
+
+
+
+
+    WARNING, READ THIS.
+    This is a computed file. Do not edit.
+    Instead, edit `/readme.template.md` and run `npm run docs` (or `yarn docs`).
+
+
+
+
+
+
+
+
+
+
+
+
+    WARNING, READ THIS.
+    This is a computed file. Do not edit.
+    Instead, edit `/readme.template.md` and run `npm run docs` (or `yarn docs`).
+
+
+
+
+
+
+
+
+
+
+
+
+    WARNING, READ THIS.
+    This is a computed file. Do not edit.
+    Instead, edit `/readme.template.md` and run `npm run docs` (or `yarn docs`).
+
+
+
+
+
+
+-->

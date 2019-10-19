@@ -1,6 +1,9 @@
 {
   "name": "@brillout/proto",
   "version": "0.1.0",
+  "scripts": {
+    "docs": "mdocs"
+  },
   "dependencies": {
     "@brillout/assert": "^0.1.0",
     "@brillout/format-text": "^0.1.3",
@@ -9,5 +12,8 @@
   "repository": "github:brillout/proto",
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@brillout/mdocs": "^0.1.30"
   }
 }

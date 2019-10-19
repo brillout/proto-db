@@ -1,4 +1,4 @@
-const proto = require('../../'); // npm install @brillout/proto-db
+const proto = require('../..'); // npm install @brillout/proto-db
 
 const data = proto.load(__dirname+'/data.json', {todos: []});
 
