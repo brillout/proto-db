@@ -105,7 +105,8 @@ Proto DB is only ~40 lines of code ([/index.js](/index.js)),
 so you can easily modify it and write your own implementation.
 
 We actually encourage you to write your own implementation;
-Proto DB is a cheering message that the technique of using JSON and the filesystem can be a great alternative to a database while prototyping and you may not use Proto DB but you may want to consider this technique.
+Proto DB is a cheering message that the technique of using JSON and the filesystem can be a great alternative to a database while prototyping.
+You may not use Proto DB but you may want to consider this technique.
 
 
 ### Usage
