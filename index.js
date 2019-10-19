@@ -10,7 +10,7 @@ module.exports = {
   getUUID,
 };
 
-function load(databaseFile) {
+function load(databaseFile, defaultValue) {
   assert.usage(path.isAbsolute(databaseFile), "`databaseFile` should be an absolute path.", {databaseFile});
 
   let protoObj;
@@ -18,10 +18,8 @@ function load(databaseFile) {
     protoObj = fs.readJsonSync(databaseFile);
   } catch(err) {
     assert.usage(!fs.pathExistsSync(databaseFile), "`"+databaseFile+"` should be a JSON file.");
-    protoObj = {};
+    protoObj = defaultValue;
   }
-
-  assert.usage(protoObj && protoObj.constructor===Object, "The JSON value of `"+databaseFile+"` should be an object.");
 
   protoObj[__proto] = {databaseFile};
 
