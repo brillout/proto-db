@@ -57,6 +57,6 @@ $ cat example/db/data.json
 
 ### API
 
-- `const data = proto.load(databaseFile, defaultValue)` loads and returns the JavaScript object saved at `databaseFile`. If there is no file at `databaseFile` then `defaultValue` is returned. The `proto.load` function is synchronous.
+- `const data = proto.load(databaseFile, defaultValue)` loads and returns the JavaScript object saved at `databaseFile`. If there is no file at `databaseFile` then `defaultValue` is used. The `proto.load` function is synchronous.
 - `await data._proto.save()` saves `data` to the disk at the path `databaseFile` you provided when running `const data = proto.load(databaseFile)`.
-- `proto.getUUID()` returns a universally unique ID.
+- `proto.getUUID()` generates and returns a universally unique ID.
