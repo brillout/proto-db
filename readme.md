@@ -125,6 +125,7 @@ module.exports = {createTodo, getAllTodos};
 async function createTodo({text}) {
   const id = proto.getUUID();
   const newTodo = {id, text};
+
   data.todos.push(newTodo);
 
   await data._save();
