@@ -9,7 +9,7 @@ async function createTodo({text}) {
   const newTodo = {id, text};
   data.todos.push(newTodo);
 
-  await proto.save(data);
+  await data._save();
 }
 
 function getAllTodos() {

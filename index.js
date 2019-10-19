@@ -2,11 +2,8 @@ const fs = require('fs-extra');
 const path = require('path');
 const assert = require('@brillout/assert');
 
-const __proto = Symbol();
-
 module.exports = {
   load,
-  save,
   getUUID,
 };
 
@@ -21,16 +18,11 @@ function load(databaseFile, defaultValue) {
     protoObj = defaultValue;
   }
 
-  protoObj[__proto] = {databaseFile};
+  protoObj._save = async () => {
+    await fs.writeJson(databaseFile, protoObj);
+  };
 
   return protoObj;
-}
-
-async function save(protoObj) {
-  assert.usage(protoObj[__proto], "`save(protoObj)` - `protoObj` should be a proto object.");
-  const {databaseFile} = protoObj[__proto];
-  assert.internal(path.isAbsolute(databaseFile));
-  await fs.writeJson(databaseFile, protoObj);
 }
 
 function getUUID() {
