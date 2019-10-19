@@ -14,19 +14,19 @@
 
 ### What is Proto DB
 
-Proto is a small Node.js tool to save a JavaScript object to disk.
+Proto is a small Node.js tool to persist a JavaScript object to disk.
 
 ### Why Proto DB
 
 At the early prototyping phase of several projects,
 we were too lazy to set up a proper database and
-instead we used a JavaScript object and saved it by reading & writing it as a JSON file to the disk.
+instead we used a JavaScript object and persisted it by reading & writing it as a JSON file to the disk.
 
 We expected that our approach wouldn't survive long
-and that we soon would need to replace our lazy hack with a real database.
+and that we would soon need to replace our lazy hack with a real database.
 But, and to our biggest surprise, we got quite far until we had to use a real database.
 
-Proto DB is a cheering message that the technique of using JavaScript objects, JSON, and the filesystem can be a great alternative to a database while prototyping. You may not use Proto DB but you may want to consider this technique.
+Proto DB is a cheering message that the technique of using JSON and the filesystem can be a great alternative to a database while prototyping. You may not use Proto DB but you may want to consider this technique.
 
 ### Usage
 
@@ -49,7 +49,7 @@ $ node example/
 The new todo item is saved as JSON in `data.json`:
 
 ~~~shell
-$ cat ~/proto-example/db/data.json
+$ cat example/db/data.json
 {"todos":[{"id":199451513185,"text":"Buy Milk"}]}
 ~~~
 
