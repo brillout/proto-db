@@ -7,7 +7,7 @@ module.exports = {
   getUUID,
 };
 
-function load(databaseFile, defaultValue) {
+function load(databaseFile, defaultValue={}) {
   assert.usage(path.isAbsolute(databaseFile), "`databaseFile` should be an absolute path.", {databaseFile});
 
   let protoObj;
@@ -18,9 +18,10 @@ function load(databaseFile, defaultValue) {
     protoObj = defaultValue;
   }
 
-  protoObj._save = async () => {
-    await fs.writeJson(databaseFile, protoObj);
-  };
+  Object.defineProperty(protoObj, '_save', {
+    value: async () => { await fs.writeJson(databaseFile, protoObj) },
+    enumarable: false, writable: false, configurable: false,
+  });
 
   return protoObj;
 }
