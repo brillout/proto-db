@@ -85,8 +85,6 @@
 <a href="#usage">Usage</a>
 &nbsp; | &nbsp;
 <a href="#api">API</a>
-&nbsp; | &nbsp;
-<a href="#how-does-it-work">How does it work</a>
 </p>
 
 ### What is Proto DB
