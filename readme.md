@@ -101,12 +101,12 @@ We expected that our approach wouldn't survive long
 and that we would soon need to replace our lazy hack with a real database.
 But, and to our biggest surprise, we got quite far until we had to use a real database.
 
-ProtoDB is only ~40 lines of code ([/index.js](/index.js)),
+Proto is only ~40 lines of code ([/index.js](/index.js)),
 so you can easily modify it and write your own implementation.
 
 We actually encourage you to write your own implementation;
 ProtoDB is a cheering message that the technique of using JSON and the filesystem can be a great alternative to a database while prototyping.
-You may not use ProtoDB but you may want to consider this technique.
+You may not use Proto but you may want to consider this technique.
 
 
 ### Usage
