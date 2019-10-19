@@ -1,20 +1,20 @@
-# Proto DB
+# ProtoDB
 
 <p align='center'>
-<a href="#what-is-proto-db">What is Proto DB</a>
+<a href="#what-is-protodb">What is ProtoDB</a>
 &nbsp; | &nbsp;
-<a href="#why-proto-db">Why Proto DB</a>
+<a href="#why-protodb">Why ProtoDB</a>
 &nbsp; | &nbsp;
 <a href="#usage">Usage</a>
 &nbsp; | &nbsp;
 <a href="#api">API</a>
 </p>
 
-### What is Proto DB
+### What is ProtoDB
 
 Proto is a small Node.js tool to persist a JavaScript object to disk.
 
-### Why Proto DB
+### Why ProtoDB
 
 At the early prototyping phase of several projects,
 we were too lazy to set up a proper database and
@@ -24,12 +24,12 @@ We expected that our approach wouldn't survive long
 and that we would soon need to replace our lazy hack with a real database.
 But, and to our biggest surprise, we got quite far until we had to use a real database.
 
-Proto DB is only ~40 lines of code ([/index.js](/index.js)),
+ProtoDB is only ~40 lines of code ([/index.js](/index.js)),
 so you can easily modify it and write your own implementation.
 
 We actually encourage you to write your own implementation;
-Proto DB is a cheering message that the technique of using JSON and the filesystem can be a great alternative to a database while prototyping.
-You may not use Proto DB but you may want to consider this technique.
+ProtoDB is a cheering message that the technique of using JSON and the filesystem can be a great alternative to a database while prototyping.
+You may not use ProtoDB but you may want to consider this technique.
 
 
 ### Usage
