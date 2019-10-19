@@ -168,8 +168,6 @@ $ cat example/db/data.json
 - `await data._proto.save()` saves `data` to the disk at the path `databaseFile` you provided when running `const data = proto.load(databaseFile)`.
 - `proto.getUUID()` returns a universally unique ID.
 
-That's it.
-
 <!---
 
 
