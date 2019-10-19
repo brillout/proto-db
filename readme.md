@@ -112,7 +112,7 @@ Idiomatic usage example:
 ~~~js
 // /example/db/index.js
 
-const proto = require('@brillout/proto'); // npm install @brillout/proto-db
+const proto = require('@brillout/proto-db'); // npm install @brillout/proto-db
 
 const data = proto.load(__dirname+'/data.json', {todos: []});
 
