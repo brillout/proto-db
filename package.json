@@ -8,11 +8,9 @@
     "@brillout/assert": "^0.1.0",
     "fs-extra": "^8.1.0"
   },
-  "repository": "github:brillout/proto-db",
-  "publishConfig": {
-    "access": "public"
-  },
   "devDependencies": {
     "@brillout/mdocs": "^0.1.30"
-  }
+  },
+  "repository": "github:brillout/proto-db",
+  "publishConfig": {"access": "public"}
 }
