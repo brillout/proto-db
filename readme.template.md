@@ -18,7 +18,7 @@ Proto is a small Node.js tool to persist a JavaScript object to disk.
 
 At the early prototyping phase of several projects,
 we were too lazy to set up a proper database and
-instead we used a JavaScript object and persisted it by reading & writing JSON to the disk.
+instead we used a JavaScript object and persisted it by reading & writing JSON to disk.
 
 We expected that our approach wouldn't survive long
 and that we would soon need to replace our lazy hack with a real database.
@@ -28,7 +28,7 @@ Proto is only ~40 lines of code ([/index.js](/index.js)),
 so you can easily modify it and write your own implementation.
 
 We actually encourage you to write your own implementation;
-ProtoDB is a cheering message that the technique of using JSON and the filesystem can be a great alternative to a database while prototyping.
+ProtoDB is a cheering message that the technique of using JSON and the filesystem can be a great alternative to a database for prototypes and small to medium-sized apps.
 You may not use Proto but you may want to consider this technique.
 
 
