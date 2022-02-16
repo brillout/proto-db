@@ -1,4 +1,4 @@
-const fs = require('fs-extra');
+const fs = require('fs');
 const path = require('path');
 const assert = require('@brillout/assert');
 
@@ -12,15 +12,15 @@ function load(databaseFile, defaultValue) {
 
   let protoObj;
   try {
-    protoObj = fs.readJsonSync(databaseFile);
+    protoObj = JSON.parse(fs.readFileSync(databaseFile, 'utf8'));
   } catch(err) {
-    assert.usage(!fs.pathExistsSync(databaseFile), "`"+databaseFile+"` should be a JSON file.");
+    assert.usage(!fs.existsSync(databaseFile), "`"+databaseFile+"` should be a JSON file.");
     assert.usage(defaultValue!==undefined, "You should provide a `defaultValue` when there is no `"+databaseFile+"` file.");
     protoObj = defaultValue;
   }
 
   Object.defineProperty(protoObj, '_save', {
-    value: async () => { await fs.writeJson(databaseFile, protoObj) },
+    value: async () => { fs.writeFileSync(databaseFile, JSON.stringify(protoObj)) },
     enumarable: false, writable: false, configurable: false,
   });
 

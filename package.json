@@ -1,12 +1,11 @@
 {
   "name": "@brillout/proto-db",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "docs": "mdocs"
   },
   "dependencies": {
-    "@brillout/assert": "^0.1.0",
-    "fs-extra": "^8.1.0"
+    "@brillout/assert": "^0.1.0"
   },
   "devDependencies": {
     "@brillout/mdocs": "^0.1.30"
